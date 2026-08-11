@@ -1,91 +1,92 @@
 # 🧠 NLP Analysis Studio
 
-An interactive **Streamlit** dashboard for exploring a complete Natural Language Processing pipeline — from tokenization to dependency parsing — powered by **NLTK** and **spaCy**.
+An interactive **Streamlit** dashboard for exploring the complete **Natural Language Processing (NLP) pipeline** using **NLTK** and **spaCy**. The application allows users to perform and visualize fundamental NLP tasks through a simple and user-friendly web interface.
 
-Built by **Annanya Kesharwani**.
+Developed by **Annanya Kesharwani**.
+
+---
+
+## 📖 Overview
+
+This project demonstrates the implementation of essential NLP techniques using Python libraries **NLTK** and **spaCy**. The application is built with **Streamlit**, providing an interactive interface where users can enter any paragraph and analyze it through different stages of the NLP pipeline.
+
+The project is implemented inside a **Google Colab Notebook**, which generates the Streamlit application (`nlp_app.py`) using the `%%writefile` command.
 
 ---
 
 ## ✨ Features
 
-The app walks through 9 core NLP pipeline steps, run individually or all at once:
+The application performs the following NLP operations:
 
-1. **Sentence Segmentation** — split raw text into sentences
-2. **Word Tokenization** — break text into individual tokens
-3. **Stop Word Removal** — filter out common stop words
-4. **Stemming** — reduce words to their root form (Porter Stemmer)
-5. **Lemmatization** — reduce words to their dictionary base form (WordNet)
-6. **POS Tagging** — assign part-of-speech tags to each token
-7. **Named Entity Recognition (NER)** — detect entities like people, places, and organizations
-8. **Dependency Parsing** — visualize grammatical relationships between tokens
-9. **Noun Phrase Chunking** — extract noun phrases from the text
+### 1. Sentence Segmentation
+Splits the input paragraph into individual sentences.
 
-Additional UI features:
-- Dark, professional theme with a custom control panel
-- Editable input text box with live preview
-- Run any single step or the entire pipeline in one click
-- Results rendered as styled chips, cards, and interactive tables
+### 2. Word Tokenization
+Breaks each sentence into individual words or tokens.
 
----
+### 3. Stop Word Removal
+Removes commonly occurring words (such as *the*, *is*, *and*) that carry little semantic meaning.
 
-## 🛠 Tech Stack
+### 4. Stemming
+Reduces words to their root form using the **Porter Stemmer**.
 
-- [Streamlit](https://streamlit.io/) — web app framework
-- [NLTK](https://www.nltk.org/) — tokenization, stop words, stemming, lemmatization, POS tagging
-- [spaCy](https://spacy.io/) — NER, dependency parsing, noun chunking (`en_core_web_sm` model)
+### 5. Lemmatization
+Converts words into their dictionary base form using **WordNet Lemmatizer**.
 
----
+### 6. Part-of-Speech (POS) Tagging
+Identifies the grammatical role of each word.
 
-## 🚀 Getting Started
+### 7. Named Entity Recognition (NER)
+Detects entities such as:
 
-### 1. Clone the repository
+- Person
+- Organization
+- Location
+- Date
+- Time
+- Money
+- Others
 
-```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
-```
+using spaCy's pre-trained model.
 
-### 2. Install dependencies
+### 8. Dependency Parsing
+Visualizes grammatical relationships between words using spaCy's dependency parser.
 
-```bash
-pip install streamlit nltk spacy
-python -m spacy download en_core_web_sm
-```
+### 9. Noun Phrase Chunking
+Extracts meaningful noun phrases from the input text.
 
-### 3. Run the app
+### Additional Features
 
-```bash
-streamlit run nlp_app.py
-```
-
-The app will open automatically in your browser at `http://localhost:8501`.
+- Interactive Streamlit dashboard
+- Sidebar-based NLP pipeline selection
+- Editable input text area
+- Run individual NLP steps
+- Run complete NLP pipeline
+- Structured tables for outputs
+- Dependency tree visualization
+- Responsive and modern UI
 
 ---
 
-## ☁️ Running in Google Colab
+## 🛠 Technologies Used
 
-Since Colab can't expose local ports directly, use [ngrok](https://ngrok.com/) to create a public URL:
+- Python
+- Streamlit
+- NLTK
+- spaCy
+- Google Colab
+- pyngrok (for deployment in Colab)
 
-```python
-!pip install -q streamlit nltk spacy pyngrok
-!python -m spacy download en_core_web_sm
+---
 
-# ... write nlp_app.py ...
+## 📚 Python Libraries
 
-!streamlit run nlp_app.py >/dev/null 2>&1 &
-
-from pyngrok import ngrok
-import os
-
-# Set your ngrok auth token as an environment variable or Colab secret —
-# never hardcode it in the notebook.
-ngrok.set_auth_token(os.environ["NGROK_AUTH_TOKEN"])
-
-public_url = ngrok.connect(addr=8501)
-print(public_url)
+```text
+streamlit
+nltk
+spacy
+pyngrok
 ```
-
-> ⚠️ **Never commit an ngrok auth token (or any API key/secret) directly in a notebook or script.** Use environment variables, Colab secrets, or a `.env` file excluded via `.gitignore`.
 
 ---
 
@@ -93,21 +94,96 @@ print(public_url)
 
 ```
 .
-├── nlp_app.py       # Main Streamlit application
-└── README.md        # Project documentation
+├── NLP_Analysis_Studio.ipynb      # Google Colab notebook containing the project
+├── nlp_app.py                     # Generated Streamlit application (created using %%writefile)
+└── README.md                      # Project documentation
 ```
 
 ---
 
-## 📋 Requirements
+## ⚙ Installation
 
-- Python 3.8+
-- streamlit
-- nltk
-- spacy (with `en_core_web_sm` model)
+### Install Required Libraries
+
+```bash
+pip install streamlit nltk spacy pyngrok
+```
 
 ---
 
-## 📝 License
+### Download spaCy Model
 
-This project is open source and available for personal and educational use.
+```bash
+python -m spacy download en_core_web_sm
+```
+
+---
+
+## 🚀 Running the Project Locally
+
+After generating or saving `nlp_app.py`, run:
+
+```bash
+streamlit run nlp_app.py
+```
+
+The application will be available at:
+
+```
+http://localhost:8501
+```
+
+---
+
+## ☁ Running in Google Colab
+
+### Step 1
+
+Install required packages.
+
+```python
+!pip install -q streamlit nltk spacy pyngrok
+```
+
+---
+
+### Step 2
+
+Download the spaCy model.
+
+```python
+!python -m spacy download en_core_web_sm
+```
+
+---
+
+### Step 3
+
+Create the Streamlit application.
+
+```python
+%%writefile nlp_app.py
+# Paste the Streamlit code here
+```
+
+---
+
+### Step 4
+
+Run the Streamlit server.
+
+```python
+!streamlit run nlp_app.py >/dev/null 2>&1 &
+```
+
+---
+
+### Step 5
+
+Create a public URL using ngrok.
+
+```python
+from pyngrok import ngrok
+import os
+
+ngrok.set_auth_token(os.environ["NGROK_AUTH_TOKEN"])
