@@ -94,10 +94,27 @@ pyngrok
 
 ```
 .
-├── NLP_Analysis_Studio.ipynb      # Google Colab notebook containing the project
-├── nlp_app.py                     # Generated Streamlit application (created using %%writefile)
-└── README.md                      # Project documentation
+Practical_1/
+│
+├── images/
+│   ├── home.png
+│   ├── sentence_segmentation.png
+│   ├── word_tokenization.png
+│   ├── stopward_removal.png
+│   ├── stemming.png
+│   ├── lemmatization.png
+│   ├── pos_tagging.png
+│   ├── NER.png
+│   ├── dependency_parsing.png
+│   ├── noun_phrase_chunking.png
+│   └── README.md
+│
+├── .gitignore
+├── GenAI_01.ipynb
+├── nlp_app.py
+└── README.md
 ```
+
 
 ---
 
